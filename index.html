@@ -1,157 +1,234 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praxen Dental - Enlaces</title>
-    <!-- Tailwind CSS -->
+    <title>Praxen Dental | Link in Bio</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         praxen: {
-                            dark: '#0B132B',
-                            card: '#1C2541',
-                            accent: '#00B4D8',
-                            cyan: '#48CAE4',
-                            text: '#E0FBFC'
+                            bg: '#0A1128',
+                            card: '#121E3B',
+                            cardHover: '#17264a',
+                            border: 'rgba(0, 180, 216, 0.35)',
+                            borderHover: 'rgba(0, 223, 137, 0.9)',
+                            cyan: '#00B4D8',
+                            teal: '#00DF89',
+                            muted: '#94a3b8'
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0B132B;
-            color: #E0FBFC;
+            background-color: #0A1128;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(0, 223, 137, 0.08) 0%, transparent 40%);
+            min-height: 100vh;
         }
-        .glow-effect:hover {
-            box-shadow: 0 0 20px rgba(0, 180, 216, 0.35);
+        .tech-card {
+            background: linear-gradient(135deg, rgba(18, 30, 59, 0.95) 0%, rgba(10, 17, 40, 0.98) 100%);
+            backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(0, 180, 216, 0.35);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tech-card:hover {
+            transform: translateY(-3px);
+            border-color: #00DF89;
+            box-shadow: 0 12px 35px -10px rgba(0, 223, 137, 0.35);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.03); }
+        }
+        .glow-avatar {
+            box-shadow: 0 0 30px rgba(0, 180, 216, 0.4);
+        }
+        .pulse-dot {
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A1128;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 180, 216, 0.4);
+            border-radius: 3px;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between bg-praxen-dark text-praxen-text relative overflow-x-hidden">
+<body class="flex flex-col min-h-screen text-white antialiased selection:bg-praxen-teal selection:text-praxen-bg relative">
 
-    <!-- Top Navigation / Main Menu Return -->
-    <header class="w-full max-w-md mx-auto px-6 pt-6 flex justify-between items-center z-10">
-        <a href="#" onclick="alert('Volviendo al menú principal...'); return false;" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-praxen-cyan hover:text-white transition bg-praxen-card/80 border border-praxen-accent/30 px-3.5 py-2 rounded-full shadow-md backdrop-blur-md">
-            <i class="fa-solid fa-arrow-left text-sm"></i> Menú Principal
-        </a>
-        <span class="text-xs uppercase tracking-widest text-praxen-cyan/70 font-bold">Praxen Dental</span>
-    </header>
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-x-full transition-transform duration-300 bg-praxen-card text-white px-5 py-3 rounded-xl shadow-2xl border border-praxen-teal/40 flex items-center gap-3 text-xs sm:text-sm font-medium">
+        <i class="fa-solid fa-circle-check text-praxen-teal text-base"></i>
+        <span id="toast-message">Enlace copiado al portapapeles</span>
+    </div>
 
-    <!-- Main Content Container -->
-    <main class="w-full max-w-md mx-auto px-6 py-8 flex flex-col items-center flex-grow z-10">
-        
-        <!-- Profile & Business Photo -->
-        <div class="relative mb-6">
-            <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-praxen-accent to-praxen-cyan opacity-75 blur-sm"></div>
-            <div class="relative w-28 h-28 rounded-full overflow-hidden border-2 border-praxen-accent bg-praxen-card flex items-center justify-center shadow-xl">
-                <!-- Using a clean professional dental placeholder / avatar -->
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80" alt="Praxen Dental" class="w-full h-full object-cover">
+    <!-- Top Navigation Bar with Back to Main Menu Arrow -->
+    <header class="sticky top-0 z-40 w-full bg-[#0A1128]/90 backdrop-blur-md border-b border-praxen-cyan/20 px-4 py-3.5">
+        <div class="max-w-md mx-auto flex items-center justify-between">
+            <button onclick="returnToMainMenu()" class="group flex items-center gap-2 text-xs font-bold text-slate-200 hover:text-praxen-teal transition-colors bg-praxen-card px-3.5 py-2 rounded-xl border border-praxen-cyan/40 hover:border-praxen-teal shadow-md">
+                <i class="fa-solid fa-arrow-left text-praxen-teal group-hover:-translate-x-1 transition-transform"></i>
+                <span>Menú Principal</span>
+            </button>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-praxen-teal pulse-dot"></span>
+                <span class="text-[11px] uppercase tracking-widest font-extrabold text-praxen-cyan">Praxen Dental</span>
             </div>
         </div>
+    </header>
 
-        <!-- Business Name & Subtitle -->
-        <h1 class="text-2xl font-bold tracking-tight text-white mb-1 text-center">PRAXEN DENTAL</h1>
-        <p class="text-xs font-medium uppercase tracking-widest text-praxen-cyan mb-8 text-center">Laboratorio & Odontología Avanzada</p>
-
-        <!-- Links List -->
-        <div class="w-full flex flex-col gap-4">
+    <!-- Main Container -->
+    <main class="w-full max-w-md mx-auto px-4 py-6 sm:py-8 flex-grow flex flex-col items-center justify-between">
+        
+        <!-- Profile Header Section -->
+        <div class="w-full flex flex-col items-center text-center space-y-4 mb-8">
             
-            <!-- 1. Exchange Contact -->
-            <button onclick="downloadVCard()" class="w-full group flex items-center justify-between p-4 rounded-xl bg-praxen-card border border-praxen-accent/30 hover:border-praxen-cyan transition-all duration-300 glow-effect shadow-lg">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-praxen-accent/10 flex items-center justify-center text-praxen-cyan group-hover:bg-praxen-accent group-hover:text-praxen-dark transition-colors">
-                        <i class="fa-solid fa-address-book text-lg"></i>
-                    </div>
-                    <div class="text-left">
-                        <span class="block text-sm font-bold text-white">Guardar Contacto</span>
-                        <span class="block text-xs text-praxen-cyan/80">Exchange Contact (vCard)</span>
+            <!-- Logo / Avatar with Glow -->
+            <div class="relative">
+                <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-praxen-cyan via-praxen-teal to-blue-900 glow-avatar">
+                    <div class="w-full h-full bg-praxen-card rounded-full flex flex-col items-center justify-center p-2 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80" alt="Praxen Dental" class="w-full h-full object-cover rounded-full">
                     </div>
                 </div>
-                <i class="fa-solid fa-chevron-right text-xs text-praxen-cyan/60 group-hover:translate-x-1 transition-transform"></i>
+                <!-- Status Badge -->
+                <div class="absolute -bottom-2.5 left-1/2 transform -translate-x-1/2 bg-praxen-card border border-praxen-cyan/50 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg whitespace-nowrap">
+                    <span class="w-2 h-2 rounded-full bg-praxen-teal pulse-dot"></span>
+                    <span class="text-[11px] font-semibold text-slate-200">Odontología Avanzada</span>
+                </div>
+            </div>
+
+            <!-- Title & Tagline -->
+            <div class="space-y-1.5 pt-2">
+                <h1 class="text-2xl font-extrabold tracking-tight text-white">
+                    PRAXEN DENTAL
+                </h1>
+                <p class="text-praxen-cyan font-semibold text-xs uppercase tracking-widest">Laboratorio & Odontología Avanzada</p>
+            </div>
+
+            <!-- Bio -->
+            <p class="text-slate-300 text-xs sm:text-sm max-w-xs leading-relaxed">
+                Innovación digital, cerámica E-max, circonio y escaneos 3D con precisión milimétrica.
+            </p>
+        </div>
+
+        <!-- Links Stack (Exactly 4 requested links) -->
+        <div class="w-full space-y-3.5 mb-8">
+            
+            <!-- 1. Exchange Contact (vCard download for Eduardo Cruz / PRAXEN DENTAL) -->
+            <button onclick="downloadVCard()" class="tech-card group w-full p-4 rounded-2xl flex items-center justify-between text-left cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-praxen-cyan/15 text-praxen-cyan border border-praxen-cyan/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-praxen-teal group-hover:text-praxen-bg group-hover:border-praxen-teal transition-all">
+                        <i class="fa-solid fa-address-card text-base"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm font-bold text-white group-hover:text-praxen-teal transition-colors">Exchange Contact</div>
+                        <div class="text-xs text-slate-400">Guardar contacto (vCard)</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-download text-xs text-praxen-cyan group-hover:text-praxen-teal transition-transform pr-2"></i>
             </button>
 
             <!-- 2. WhatsApp -->
-            <a href="https://wa.me/573106098774" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-4 rounded-xl bg-praxen-card border border-praxen-accent/30 hover:border-praxen-cyan transition-all duration-300 glow-effect shadow-lg">
+            <a href="https://wa.me/573106098774" target="_blank" rel="noopener noreferrer" class="tech-card group w-full p-4 rounded-2xl flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-praxen-accent/10 flex items-center justify-center text-praxen-cyan group-hover:bg-praxen-accent group-hover:text-praxen-dark transition-colors">
-                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-400 group-hover:text-praxen-bg transition-all">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
                     </div>
                     <div class="text-left">
-                        <span class="block text-sm font-bold text-white">WhatsApp</span>
-                        <span class="block text-xs text-praxen-cyan/80">Atención directa y pedidos</span>
+                        <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">WhatsApp</div>
+                        <div class="text-xs text-emerald-400 font-medium">+57 310 6098774</div>
                     </div>
                 </div>
-                <i class="fa-solid fa-chevron-right text-xs text-praxen-cyan/60 group-hover:translate-x-1 transition-transform"></i>
+                <i class="fa-solid fa-arrow-right text-emerald-400 group-hover:translate-x-1 transition-transform pr-2"></i>
             </a>
 
             <!-- 3. Instagram -->
-            <a href="https://www.instagram.com/praxen_dentallab?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-4 rounded-xl bg-praxen-card border border-praxen-accent/30 hover:border-praxen-cyan transition-all duration-300 glow-effect shadow-lg">
+            <a href="https://www.instagram.com/praxen_dentallab" target="_blank" rel="noopener noreferrer" class="tech-card group w-full p-4 rounded-2xl flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-praxen-accent/10 flex items-center justify-center text-praxen-cyan group-hover:bg-praxen-accent group-hover:text-praxen-dark transition-colors">
-                        <i class="fa-brands fa-instagram text-xl"></i>
+                    <div class="w-10 h-10 rounded-xl bg-pink-500/15 text-pink-400 border border-pink-500/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-pink-400 group-hover:text-praxen-bg transition-all">
+                        <i class="fa-brands fa-instagram text-base"></i>
                     </div>
                     <div class="text-left">
-                        <span class="block text-sm font-bold text-white">Instagram</span>
-                        <span class="block text-xs text-praxen-cyan/80">@praxen_dentallab</span>
+                        <div class="text-sm font-bold text-white group-hover:text-pink-400 transition-colors">Instagram</div>
+                        <div class="text-xs text-slate-400">@praxen_dentallab</div>
                     </div>
                 </div>
-                <i class="fa-solid fa-chevron-right text-xs text-praxen-cyan/60 group-hover:translate-x-1 transition-transform"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-pink-400 group-hover:translate-x-1 transition-transform pr-2"></i>
             </a>
 
-            <!-- 4. Google Reviews -->
-            <a href="https://search.google.com/local/writereview?placeid=ChIJf2isBPWaP44R3h30sqt6EBA" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-4 rounded-xl bg-praxen-card border border-praxen-accent/30 hover:border-praxen-cyan transition-all duration-300 glow-effect shadow-lg">
+            <!-- 4. Reseñas de Google -->
+            <a href="https://search.google.com/local/writereview?placeid=ChIJf2isBPWaP44R3h30sqt6EBA" target="_blank" rel="noopener noreferrer" class="tech-card group w-full p-4 rounded-2xl flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-praxen-accent/10 flex items-center justify-center text-praxen-cyan group-hover:bg-praxen-accent group-hover:text-praxen-dark transition-colors">
-                        <i class="fa-solid fa-star text-lg"></i>
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 border border-amber-500/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-400 group-hover:text-praxen-bg transition-all">
+                        <i class="fa-solid fa-star text-base"></i>
                     </div>
                     <div class="text-left">
-                        <span class="block text-sm font-bold text-white">Reseñas de Google</span>
-                        <span class="block text-xs text-praxen-cyan/80">Déjanos tu opinión</span>
+                        <div class="text-sm font-bold text-white group-hover:text-amber-400 transition-colors">Reseñas de Google</div>
+                        <div class="text-xs text-slate-400">Califica nuestra atención</div>
                     </div>
                 </div>
-                <i class="fa-solid fa-chevron-right text-xs text-praxen-cyan/60 group-hover:translate-x-1 transition-transform"></i>
+                <i class="fa-solid fa-chevron-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform pr-2"></i>
             </a>
 
         </div>
+
+        <!-- Footer with Tap Me Logo -->
+        <footer class="w-full text-center text-xs text-slate-400 space-y-4 mt-4">
+            <button onclick="returnToMainMenu()" class="inline-flex items-center gap-1.5 text-xs text-praxen-teal hover:underline font-semibold">
+                <i class="fa-solid fa-arrow-left text-[10px]"></i> Regresar al Menú Principal
+            </button>
+            <p>&copy; 2026 Praxen Dental Lab. Todos los derechos reservados.</p>
+            
+            <!-- Tap Me Logo at the very bottom -->
+            <div class="pt-2 pb-2 flex flex-col items-center justify-center gap-1.5">
+                <span class="text-[10px] tracking-widest text-slate-400 uppercase font-bold">Powered by</span>
+                <div class="inline-flex items-center gap-2 bg-praxen-card border border-praxen-cyan/40 px-4 py-2 rounded-full shadow-lg">
+                    <div class="w-5 h-5 rounded-full bg-gradient-to-tr from-praxen-cyan to-praxen-teal flex items-center justify-center text-[10px] text-praxen-bg font-black">
+                        <i class="fa-solid fa-nfc-signal"></i>
+                    </div>
+                    <span class="text-xs font-extrabold tracking-wider text-white">TAP <span class="text-praxen-teal">ME</span></span>
+                </div>
+            </div>
+        </footer>
 
     </main>
 
-    <!-- Footer with Tap Me Logo -->
-    <footer class="w-full max-w-md mx-auto py-6 flex flex-col items-center justify-center z-10 border-t border-praxen-card mt-auto">
-        <div class="text-[10px] uppercase tracking-widest text-praxen-cyan/60 mb-2 font-semibold">Powered by</div>
-        <!-- Tap Me Logo Footer Badge -->
-        <div class="flex items-center gap-2 bg-praxen-card px-4 py-1.5 rounded-full border border-praxen-accent/20 shadow-inner">
-            <div class="w-5 h-5 rounded-full bg-gradient-to-tr from-praxen-accent to-praxen-cyan flex items-center justify-center text-[10px] text-praxen-dark font-black">
-                <i class="fa-solid fa-nfc-signal"></i>
-            </div>
-            <span class="text-xs font-bold tracking-wider text-white">TAP ME</span>
-        </div>
-    </footer>
-
-    <!-- Script to generate vCard (.vcf) dynamically -->
+    <!-- JavaScript Actions -->
     <script>
+        function returnToMainMenu() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showToast('Redirigiendo al Menú Principal...');
+        }
+
         function downloadVCard() {
-            const vCardData = 
-`BEGIN:VCARD
+            const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:Eduardo Cruz
 ORG:PRAXEN DENTAL
 TEL;TYPE=WORK,VOICE:+573106098774
+NOTE:Laboratorio & Odontología Avanzada
 END:VCARD`;
-
-            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+            const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -160,6 +237,17 @@ END:VCARD`;
             a.click();
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
+            showToast('Contacto vCard descargado con éxito');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const messageSpan = document.getElementById('toast-message');
+            messageSpan.textContent = message;
+            toast.classList.remove('translate-x-full');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 3000);
         }
     </script>
 </body>
