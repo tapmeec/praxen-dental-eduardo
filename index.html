@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +13,12 @@
                 extend: {
                     colors: {
                         praxen: {
-                            dark: '#0B132B',
-                            card: '#1C2541',
+                            lightBg: '#FFFFFF',
+                            cardBg: '#F8FAFC',
+                            cardBorder: '#E2E8F0',
                             accent: '#00B4D8',
-                            cyan: '#48CAE4',
-                            text: '#E0FBFC'
+                            darkText: '#0B132B',
+                            subText: '#64748B'
                         }
                     }
                 }
@@ -31,20 +32,20 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0B132B;
-            color: #E0FBFC;
+            background-color: #FFFFFF;
+            color: #0B132B;
         }
         .glow-effect:hover {
-            box-shadow: 0 0 20px rgba(0, 180, 216, 0.35);
+            box-shadow: 0 10px 25px -5px rgba(0, 180, 216, 0.2);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between bg-praxen-dark text-praxen-text relative overflow-x-hidden">
+<body class="min-h-screen flex flex-col justify-between bg-white text-praxen-dark relative overflow-x-hidden">
 
-    <!-- Top Header / Logo Praxen (Ajustado y separado del borde izquierdo) -->
+    <!-- Top Header / Logo Praxen -->
     <header class="w-full max-w-md mx-auto px-4 pt-6 relative z-25 h-16">
         <div class="absolute left-6 top-4">
-            <img src="logopraxendental.png" alt="Praxen Dental Logo" class="w-28 object-contain drop-shadow-md">
+            <img src="logopraxendental.png" alt="Praxen Dental Logo" class="w-28 object-contain drop-shadow-sm">
         </div>
     </header>
 
@@ -53,83 +54,83 @@
         
         <!-- Profile & Business Photo -->
         <div class="relative mb-4 mt-2">
-            <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-praxen-accent to-praxen-cyan opacity-75 blur-sm"></div>
-            <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-praxen-accent bg-praxen-card flex items-center justify-center shadow-xl">
+            <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-praxen-accent to-cyan-400 opacity-50 blur-sm"></div>
+            <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-praxen-accent bg-praxen-cardBg flex items-center justify-center shadow-lg">
                 <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80" alt="Eduardo Cruz" class="w-full h-full object-cover">
             </div>
         </div>
 
         <!-- Name & Title -->
-        <h1 class="text-2xl font-bold tracking-tight text-white mb-1 text-center">Eduardo Cruz</h1>
-        <p class="text-xs font-medium uppercase tracking-widest text-praxen-cyan mb-6 text-center">Director</p>
+        <h1 class="text-2xl font-bold tracking-tight text-praxen-dark mb-1 text-center">Eduardo Cruz</h1>
+        <p class="text-xs font-semibold uppercase tracking-widest text-praxen-accent mb-6 text-center">Director</p>
 
         <!-- Links List -->
         <div class="w-full flex flex-col gap-3.5">
             
             <!-- 1. Exchange Contact (Cyan/Accent) -->
-            <a id="vcard-download-btn" download="Eduardo_Cruz_Praxen_Dental.vcf" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-card border border-praxen-accent/30 hover:border-praxen-cyan transition-all duration-300 glow-effect shadow-lg cursor-pointer">
+            <a id="vcard-download-btn" download="Eduardo_Cruz_Praxen_Dental.vcf" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-cardBg border border-slate-200 hover:border-praxen-accent transition-all duration-300 glow-effect shadow-md cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-praxen-accent/10 flex items-center justify-center text-praxen-cyan group-hover:bg-praxen-accent group-hover:text-praxen-dark transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-600 group-hover:bg-sky-500 group-hover:text-white transition-colors">
                         <i class="fa-solid fa-address-book text-lg"></i>
                     </div>
                     <div class="text-left">
-                        <span class="block text-sm font-bold text-white">Exchange Contact</span>
-                        <span class="block text-xs text-praxen-cyan/80">Guardar contacto (vCard)</span>
+                        <span class="block text-sm font-bold text-slate-800">Exchange Contact</span>
+                        <span class="block text-xs text-slate-500">Guardar contacto (vCard)</span>
                     </div>
                 </div>
-                <i class="fa-solid fa-arrow-down text-xs text-praxen-cyan/60 group-hover:translate-y-0.5 transition-transform"></i>
+                <i class="fa-solid fa-arrow-down text-xs text-slate-400 group-hover:translate-y-0.5 transition-transform"></i>
             </a>
 
             <!-- 2. WhatsApp (Green Theme) -->
-            <a href="https://wa.me/573106098774" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-card border border-emerald-500/30 hover:border-emerald-400 transition-all duration-300 shadow-lg" style="box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);">
+            <a href="https://wa.me/573106098774" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-cardBg border border-slate-200 hover:border-emerald-500 transition-all duration-300 shadow-md">
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
                         <i class="fa-brands fa-whatsapp text-xl"></i>
                     </div>
                     <div class="text-left">
-                        <span class="block text-sm font-bold text-white">WhatsApp</span>
-                        <span class="block text-xs text-emerald-400/80">+57 310 6098774</span>
+                        <span class="block text-sm font-bold text-slate-800">WhatsApp</span>
+                        <span class="block text-xs text-emerald-600 font-medium">+57 310 6098774</span>
                     </div>
                 </div>
-                <i class="fa-solid fa-arrow-right text-xs text-emerald-400/60 group-hover:translate-x-1 transition-transform"></i>
+                <i class="fa-solid fa-arrow-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
             </a>
 
             <!-- 3. Instagram (Pink/Purple Theme) -->
-            <a href="https://www.instagram.com/praxen_dentallab?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-card border border-pink-500/30 hover:border-pink-400 transition-all duration-300 shadow-lg" style="box-shadow: 0 0 15px rgba(236, 72, 153, 0.1);">
+            <a href="https://www.instagram.com/praxen_dentallab?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-cardBg border border-slate-200 hover:border-pink-500 transition-all duration-300 shadow-md">
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-600 group-hover:bg-pink-500 group-hover:text-white transition-colors">
                         <i class="fa-brands fa-instagram text-xl"></i>
                     </div>
                     <div class="text-left">
-                        <span class="block text-sm font-bold text-white">Instagram</span>
-                        <span class="block text-xs text-pink-300/80">Portafolio y casos clínicos</span>
+                        <span class="block text-sm font-bold text-slate-800">Instagram</span>
+                        <span class="block text-xs text-slate-500">Portafolio y casos clínicos</span>
                     </div>
                 </div>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-pink-400/60 group-hover:scale-110 transition-transform"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:scale-110 transition-transform"></i>
             </a>
 
             <!-- 4. Google Reviews (Yellow/Amber Theme) -->
-            <a href="https://search.google.com/local/writereview?placeid=ChIJf2isBPWaP44R3h30sqt6EBA" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-card border border-amber-500/30 hover:border-amber-400 transition-all duration-300 shadow-lg" style="box-shadow: 0 0 15px rgba(245, 158, 11, 0.1);">
+            <a href="https://search.google.com/local/writereview?placeid=ChIJf2isBPWaP44R3h30sqt6EBA" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-cardBg border border-slate-200 hover:border-amber-500 transition-all duration-300 shadow-md">
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors">
                         <i class="fa-solid fa-star text-lg"></i>
                     </div>
                     <div class="text-left">
-                        <span class="block text-sm font-bold text-white">Reseñas de Google</span>
-                        <span class="block text-xs text-amber-300/80">Califica nuestra atención</span>
+                        <span class="block text-sm font-bold text-slate-800">Reseñas de Google</span>
+                        <span class="block text-xs text-slate-500">Califica nuestra atención</span>
                     </div>
                 </div>
-                <i class="fa-solid fa-chevron-right text-xs text-amber-400/60 group-hover:translate-x-1 transition-transform"></i>
+                <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
             </a>
 
         </div>
 
     </main>
 
-    <!-- Footer with Tap Me Logo Image (w-28, subido con espacio óptimo) -->
-    <footer class="w-full max-w-md mx-auto pt-8 pb-10 flex flex-col items-center justify-center z-10 border-t border-praxen-card/50 mt-auto">
-        <div class="text-[10px] uppercase tracking-widest text-praxen-cyan/60 mb-2 font-medium">Powered by</div>
-        <img src="logotapmeblanco.png" alt="Tap Me Logo" class="w-28 object-contain">
+    <!-- Footer with Tap Me Logo Image -->
+    <footer class="w-full max-w-md mx-auto pt-8 pb-10 flex flex-col items-center justify-center z-10 border-t border-slate-100 mt-auto bg-slate-50/50">
+        <div class="text-[10px] uppercase tracking-widest text-slate-400 mb-2 font-semibold">Powered by</div>
+        <img src="logotapmeblanco.png" alt="Tap Me Logo" class="w-28 object-contain filter invert">
     </footer>
 
     <!-- Script to set Data URI directly on the anchor element -->
