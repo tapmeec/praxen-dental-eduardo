@@ -41,15 +41,15 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between bg-praxen-dark text-praxen-text relative overflow-x-hidden">
 
-    <!-- Top Header with Praxen Logo on the Top Left -->
-    <header class="w-full max-w-md mx-auto px-6 pt-6 flex justify-start items-center z-10">
+    <!-- Top Header with Praxen Logo w-40 Centered/Aligned on Top Left -->
+    <header class="w-full max-w-md mx-auto px-6 pt-6 pb-2 flex justify-start items-center z-10">
         <div class="flex items-center">
-            <img src="logopraxendental.png" alt="Praxen Dental Logo" class="h-8 object-contain">
+            <img src="logopraxendental.png" alt="Praxen Dental Logo" class="w-40 object-contain">
         </div>
     </header>
 
     <!-- Main Content Container -->
-    <main class="w-full max-w-md mx-auto px-6 py-6 flex flex-col items-center flex-grow z-10">
+    <main class="w-full max-w-md mx-auto px-6 py-4 flex flex-col items-center flex-grow z-10">
         
         <!-- Profile & Business Photo -->
         <div class="relative mb-5">
@@ -87,72 +87,4 @@
                         <i class="fa-brands fa-whatsapp text-xl"></i>
                     </div>
                     <div class="text-left">
-                        <span class="block text-sm font-bold text-white">WhatsApp</span>
-                        <span class="block text-xs text-praxen-cyan/80">+57 310 6098774</span>
-                    </div>
-                </div>
-                <i class="fa-solid fa-arrow-right text-xs text-praxen-cyan/60 group-hover:translate-x-1 transition-transform"></i>
-            </a>
-
-            <!-- 3. Instagram -->
-            <a href="https://www.instagram.com/praxen_dentallab?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-4 rounded-xl bg-praxen-card border border-praxen-accent/30 hover:border-praxen-cyan transition-all duration-300 glow-effect shadow-lg">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-praxen-accent/10 flex items-center justify-center text-praxen-cyan group-hover:bg-praxen-accent group-hover:text-praxen-dark transition-colors">
-                        <i class="fa-brands fa-instagram text-xl"></i>
-                    </div>
-                    <div class="text-left">
-                        <span class="block text-sm font-bold text-white">Instagram</span>
-                        <span class="block text-xs text-praxen-cyan/80">Portafolio y casos clínicos</span>
-                    </div>
-                </div>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-praxen-cyan/60 group-hover:scale-110 transition-transform"></i>
-            </a>
-
-            <!-- 4. Google Reviews -->
-            <a href="https://search.google.com/local/writereview?placeid=ChIJf2isBPWaP44R3h30sqt6EBA" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-4 rounded-xl bg-praxen-card border border-praxen-accent/30 hover:border-praxen-cyan transition-all duration-300 glow-effect shadow-lg">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-praxen-accent/10 flex items-center justify-center text-praxen-cyan group-hover:bg-praxen-accent group-hover:text-praxen-dark transition-colors">
-                        <i class="fa-solid fa-star text-lg"></i>
-                    </div>
-                    <div class="text-left">
-                        <span class="block text-sm font-bold text-white">Reseñas de Google</span>
-                        <span class="block text-xs text-praxen-cyan/80">Califica nuestra atención</span>
-                    </div>
-                </div>
-                <i class="fa-solid fa-chevron-right text-xs text-praxen-cyan/60 group-hover:translate-x-1 transition-transform"></i>
-            </a>
-
-        </div>
-
-    </main>
-
-    <!-- Footer with Tap Me Logo Image -->
-    <footer class="w-full max-w-md mx-auto py-6 flex flex-col items-center justify-center z-10 border-t border-praxen-card/50 mt-auto">
-        <div class="text-[10px] uppercase tracking-widest text-praxen-cyan/50 mb-2 font-medium">Powered by</div>
-        <img src="logotapmeblnaco.png" alt="Tap Me Logo" class="h-6 object-contain">
-    </footer>
-
-    <!-- Script to generate vCard (.vcf) dynamically -->
-    <script>
-        function downloadVCard() {
-            const vCardData = 
-`BEGIN:VCARD
-VERSION:3.0
-FN:Eduardo Cruz
-ORG:PRAXEN DENTAL
-TEL;TYPE=WORK,VOICE:+573106098774
-END:VCARD`;
-
-            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Eduardo_Cruz_Praxen_Dental.vcf';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }
-    </script>
-</body>
-</html>
+                        <span class="block text-sm font-bold text-
