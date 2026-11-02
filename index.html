@@ -109,44 +109,4 @@
             </a>
 
             <!-- 4. Google Reviews -->
-            <a href="https://search.google.com/local/writereview?placeid=ChIJf2isBPWaP44R3h30sqt6EBA" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-4 rounded-xl bg-praxen-card border border-praxen-accent/30 hover:border-praxen-cyan transition-all duration-300 glow-effect shadow-lg">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-praxen-accent/10 flex items-center justify-center text-praxen-cyan group-hover:bg-praxen-accent group-hover:text-praxen-dark transition-colors">
-                        <i class="fa-solid fa-star text-lg"></i>
-                    </div>
-                    <div class="text-left">
-                        <span class="block text-sm font-bold text-white">Reseñas de Google</span>
-                        <span class="block text-xs text-praxen-cyan/80">Califica nuestra atención</span>
-                    </div>
-                </div>
-                <i class="fa-solid fa-chevron-right text-xs text-praxen-cyan/60 group-hover:translate-x-1 transition-transform"></i>
-            </a>
-
-        </div>
-
-    </main>
-
-    <!-- Footer with Tap Me Logo Image -->
-    <footer class="w-full max-w-md mx-auto py-6 flex flex-col items-center justify-center z-10 border-t border-praxen-card/50 mt-auto">
-        <div class="text-[10px] uppercase tracking-widest text-praxen-cyan/50 mb-2 font-medium">Powered by</div>
-        <img src="logotapmeblnaco.png" alt="Tap Me Logo" class="h-6 object-contain">
-    </footer>
-
-    <!-- Script to set Data URI directly on the anchor element -->
-    <script>
-        const vCardData = 
-`BEGIN:VCARD
-VERSION:3.0
-N:Cruz;Eduardo;;;
-FN:Eduardo Cruz
-ORG:PRAXEN DENTAL
-TITLE:Director
-TEL;TYPE=WORK,VOICE:+573106098774
-END:VCARD`;
-
-        const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        document.getElementById('vcard-download-btn').setAttribute('href', url);
-    </script>
-</body>
-</html>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJf2isBPWaP44R3h30sqt6EBA" target="_blank" rel="noopener noreferrer" class="w-full group flex items-center justify-between p-4 rounded-xl bg-praxen-card border border-praxen-accent/30 hover:border-pra
