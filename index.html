@@ -56,7 +56,7 @@
         <div class="relative mb-4 mt-2">
             <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-praxen-accent to-cyan-400 opacity-50 blur-sm"></div>
             <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-praxen-accent bg-praxen-cardBg flex items-center justify-center shadow-lg">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80" alt="Eduardo Cruz" class="w-full h-full object-cover">
+                <img src="fotodeperfiledu.jpg" alt="Eduardo Cruz" class="w-full h-full object-cover object-center">
             </div>
         </div>
 
@@ -68,7 +68,7 @@
         <div class="w-full flex flex-col gap-3.5">
             
             <!-- 1. Exchange Contact (Cyan/Accent) -->
-            <a id="vcard-download-btn" download="Eduardo_Cruz_Praxen_Dental.vcf" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-cardBg border border-slate-200 hover:border-praxen-accent transition-all duration-300 glow-effect shadow-md cursor-pointer">
+            <a id="vcard-download-btn" class="w-full group flex items-center justify-between p-3.5 rounded-xl bg-praxen-cardBg border border-slate-200 hover:border-praxen-accent transition-all duration-300 glow-effect shadow-md cursor-pointer">
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-600 group-hover:bg-sky-500 group-hover:text-white transition-colors">
                         <i class="fa-solid fa-address-book text-lg"></i>
@@ -135,21 +135,32 @@
         </a>
     </footer>
 
-    <!-- Script to set Data URI directly on the anchor element -->
+    <!-- Script de vCard interactivo optimizado para móviles -->
     <script>
-        const vCardData = 
-`BEGIN:VCARD
-VERSION:3.0
-N:Cruz;Eduardo;;;
-FN:Eduardo Cruz
-ORG:PRAXEN DENTAL
-TITLE:Director
-TEL;TYPE=WORK,VOICE:+573106098774
-END:VCARD`;
+        document.getElementById('vcard-download-btn').addEventListener('click', function(e) {
+            e.preventDefault();
 
-        const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        document.getElementById('vcard-download-btn').setAttribute('href', url);
+            const vCardData = [
+                "BEGIN:VCARD",
+                "VERSION:3.0",
+                "N:Cruz;Eduardo;;;",
+                "FN:Eduardo Cruz",
+                "ORG:PRAXEN DENTAL",
+                "TITLE:Director",
+                "TEL;TYPE=WORK,VOICE:+573106098774",
+                "END:VCARD"
+            ].join("\n");
+
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Eduardo_Cruz_Praxen_Dental.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(() => URL.revokeObjectURL(url), 100);
+        });
     </script>
 </body>
 </html>
